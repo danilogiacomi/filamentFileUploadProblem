@@ -46,7 +46,7 @@ class FilesRelationManager extends RelationManager
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ])
-        //    ->poll('5s')
+           ->poll('5s')
             ;
     }
 }
