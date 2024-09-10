@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\OrderResource\RelationManagers;
+namespace App\Filament\Resources\PollingOrderResource\RelationManagers;
 
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -29,7 +29,7 @@ class FilesRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('id')
             ->columns([
-                Tables\Columns\TextColumn::make('file'),
+                Tables\Columns\TextColumn::make('id'),
             ])
             ->filters([
                 //
@@ -46,6 +46,6 @@ class FilesRelationManager extends RelationManager
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ])
-            ;
+            ->poll('5s');
     }
 }

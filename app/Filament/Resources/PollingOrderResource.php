@@ -2,10 +2,10 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\OrderResource\Pages;
-use App\Filament\Resources\OrderResource\RelationManagers\FilesRelationManager;
-use App\Models\Order;
-use App\Models\OrderFile;
+use App\Filament\Resources\PollingOrderResource\Pages;
+use App\Filament\Resources\PollingOrderResource\RelationManagers\FilesRelationManager;
+use App\Models\PollingOrder;
+use App\Models\PollingOrderFile;
 use Carbon\Carbon;
 use Filament\Forms\Components\Actions\Action;
 use Filament\Forms\Components\Actions;
@@ -15,12 +15,11 @@ use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class OrderResource extends Resource
+class PollingOrderResource extends Resource
 {
-    protected static ?string $model = Order::class;
+    protected static ?string $model = PollingOrder::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -51,8 +50,8 @@ class OrderResource extends Resource
                                 ->info()
                                 ->send();
                             foreach ($data['files'] as $fileName){
-                                $orderFile = new OrderFile([
-                                    'order_id' => $record->id,
+                                $orderFile = new PollingOrderFile([
+                                    'polling_order_id' => $record->id,
                                     'file' => $fileName
                                 ]);
                                 $orderFile->save();
@@ -70,7 +69,7 @@ class OrderResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('file')
+                //
             ])
             ->filters([
                 //
@@ -95,9 +94,9 @@ class OrderResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListOrders::route('/'),
-            'create' => Pages\CreateOrder::route('/create'),
-            'edit' => Pages\EditOrder::route('/{record}/edit'),
+            'index' => Pages\ListPollingOrders::route('/'),
+            'create' => Pages\CreatePollingOrder::route('/create'),
+            'edit' => Pages\EditPollingOrder::route('/{record}/edit'),
         ];
     }
 }
