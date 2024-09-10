@@ -33,7 +33,7 @@ First create a new Order or PollingOrder, then a "Mass Upload Images" button wil
 
 ## Issue Randomness
 
-The issue has a random nature, sometimes it works flowlessly, sometimes one file is missing, other times more than one file are missing and not always the same ones.
+The issue has a random nature, sometimes it works flawlessly, sometimes one file is missing, other times more than one file are missing and not always the same ones.
 
 This was tested on Linux with sail, and with a nginx/php-fpm dockerized environment (which is very similar to what sail does, except it's not running php artisan serve, and it's what we normally use in production).
 
