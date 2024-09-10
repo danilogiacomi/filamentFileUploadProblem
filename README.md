@@ -5,7 +5,7 @@ This repo shows a problem where multiple file uploads may end up with missing fi
 
 After composer install, and configuring the .env file, run the migration with seeder
 
-# php artisan migrate:fresh --seed
+``` php artisan migrate:fresh --seed ```
 
 ## URL and user
 
